@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: "Elevating Brands through Strategic Design & Motion. Portfolio of Keerthika S, a based Senior Graphic Designer and Artist from Kerala, India.",
 };
 
+
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +33,7 @@ export default function RootLayout({
         className={`${jakarta.variable} ${playfair.variable} font-sans antialiased bg-[#0a0a0a] text-white`}
       >
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
