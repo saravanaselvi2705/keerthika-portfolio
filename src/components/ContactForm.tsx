@@ -68,7 +68,7 @@ export default function ContactForm() {
                         exit={{ opacity: 0 }}
                         className="flex flex-col items-center justify-center py-12 text-center"
                     >
-                        <CheckCircle2 size={48} className="text-[#25d366] mb-4" />
+                        <CheckCircle2 size={48} className="text-accent mb-4" />
                         <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
                         <p className="text-white/60">I&apos;ll get back to you within 24 hours.</p>
                         <button

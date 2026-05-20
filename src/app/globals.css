@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #fafafa;
+  --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,21 +17,12 @@ body {
   overflow-x: hidden;
 }
 
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
-  }
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  .glass {
-    @apply bg-charcoal/80 backdrop-blur-md border border-white/10;
-  }
 }
 
 * {
-  @apply selection:bg-white selection:text-black;
+  @apply selection:bg-accent selection:text-white;
 }

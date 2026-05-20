@@ -2,81 +2,69 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export default function Hero() {
-    return (
-        <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-20 pt-20">
-            {/* Background Decor */}
-            <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[120px] -z-10" />
-            <div className="absolute bottom-1/4 left-0 w-[200px] h-[200px] bg-white/5 rounded-full blur-[100px] -z-10" />
+  return (
+    <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 bg-background">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 text-center md:text-left"
+          >
+            <div className="inline-block px-3 py-1 mb-6 text-sm font-medium text-accent bg-accent/10 rounded-full">
+              Available for new opportunities
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-charcoal leading-tight mb-6 tracking-tight">
+              Building scalable <br className="hidden md:block" />
+              web experiences.
+            </h1>
+            <p className="text-lg text-muted mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+              I&apos;m a Full Stack Developer specializing in React, Next.js, and Node. 
+              I help startups and businesses build production-ready, high-performance applications.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <a
+                href="#projects"
+                className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-charcoal text-white rounded-lg font-medium hover:bg-charcoal-light transition-colors group"
+              >
+                View Projects
+                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#contact"
+                className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white text-charcoal border border-gray-200 rounded-lg font-medium hover:border-gray-300 hover:bg-gray-50 transition-colors"
+              >
+                Contact Me
+              </a>
+            </div>
+          </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="max-w-4xl"
-            >
-                <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-white/60 uppercase tracking-[0.3em] text-sm mb-6 block"
-                >
-                    Senior Graphic Designer & Artist
-                </motion.span>
-
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="text-5xl md:text-8xl font-serif font-bold leading-tight mb-8"
-                >
-                    Elevating Brands <br />
-                    <span className="text-white/40 italic">through Strategic Design.</span>
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                    className="text-lg md:text-xl text-white/70 max-w-2xl mb-12 leading-relaxed"
-                >
-                    I am Keerthika S, a Senior Graphic Designer & Professional Artist.
-                    I blend creativity with strategy to deliver impactful visual solutions
-                    for brands like Talrop, MediaOne, and Steyp.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.8 }}
-                    className="flex flex-wrap gap-6"
-                >
-                    <Link
-                        href="#portfolio"
-                        className="px-8 py-4 bg-white text-black font-semibold rounded-none hover:bg-white/90 transition-all flex items-center gap-2"
-                    >
-                        View Portfolio <ArrowRight size={20} />
-                    </Link>
-                    <Link
-                        href="#contact"
-                        className="px-8 py-4 border border-white/20 hover:border-white transition-all font-semibold"
-                    >
-                        Contact Me
-                    </Link>
-                </motion.div>
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            >
-                <span className="text-[10px] uppercase tracking-widest text-white/40">Scroll</span>
-                <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
-            </motion.div>
-        </section>
-    );
+          {/* Right Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-1 w-full max-w-md md:max-w-none"
+          >
+            <div className="aspect-square bg-gray-100 rounded-2xl border border-gray-200 flex items-center justify-center overflow-hidden relative">
+              {/* Using a clean placeholder structure since we don't have a specific image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-white" />
+              <div className="relative text-center p-8">
+                <div className="w-24 h-24 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center mx-auto mb-6 rotate-3">
+                  <span className="text-4xl font-bold text-accent">{"</>"}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-charcoal mb-2">Clean Code.</h3>
+                <p className="text-muted text-sm">Professional architecture.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }

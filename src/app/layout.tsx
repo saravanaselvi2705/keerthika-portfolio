@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-jakarta",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Keerthika S | Senior Graphic Designer & Professional Artist",
-  description: "Elevating Brands through Strategic Design & Motion. Portfolio of Keerthika S, a based Senior Graphic Designer and Artist from Kerala, India.",
+  title: "Full Stack Developer Portfolio",
+  description: "Personal freelance developer portfolio showcasing projects, experience, and skills. Built with Next.js and Tailwind CSS.",
 };
-
 
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -28,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${jakarta.variable} ${playfair.variable} font-sans antialiased bg-[#0a0a0a] text-white`}
+        className={`${inter.variable} font-sans antialiased bg-background text-foreground`}
       >
         {children}
         <WhatsAppButton />

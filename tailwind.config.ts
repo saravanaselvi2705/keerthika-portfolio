@@ -9,18 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-jakarta)"],
-        serif: ["var(--font-playfair)"],
+        sans: ["var(--font-inter)"],
       },
       colors: {
-        background: "#0a0a0a",
-        foreground: "#ededed",
+        background: "#fafafa", // Off-white
+        foreground: "#171717", // Charcoal
         charcoal: {
-          DEFAULT: "#121212",
-          light: "#1e1e1e",
+          DEFAULT: "#171717",
+          light: "#262626",
           dark: "#0a0a0a",
         },
-        primary: "#ffffff",
+        muted: "#737373", // Muted gray
+        accent: "#2563eb", // Deep blue
+        surface: "#ffffff",
       },
     },
   },

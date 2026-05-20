@@ -1,71 +1,65 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 
-const skillGroups = [
-    {
-        title: "Software",
-        skills: ["Adobe Photoshop", "Illustrator", "InDesign", "Tally ERP"],
-    },
-    {
-        title: "Core Competencies",
-        skills: ["Branding", "Social Media Creatives", "Typography", "Sketching", "Fine Arts"],
-    },
-    {
-        title: "Languages",
-        skills: ["English", "Malayalam", "Hindi", "Tamil"],
-    },
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"],
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Express", "REST APIs", "GraphQL", "Python", "NestJS"],
+  },
+  {
+    title: "Database",
+    skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Mongoose"],
+  },
+  {
+    title: "Tools & Deployment",
+    skills: ["Git", "Docker", "AWS", "Vercel", "CI/CD", "Jest", "Figma"],
+  },
 ];
 
 export default function Skills() {
-    return (
-        <section className="py-24 px-6 md:px-20 bg-[#070707]">
-            <SectionHeading title="Expertise" subtitle="The tools and techniques I use to bring ideas to life." />
+  return (
+    <section id="skills" className="py-20 bg-white border-y border-gray-100">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="mb-12 text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal tracking-tight">
+            Technical Skills
+          </h2>
+          <p className="text-muted mt-4 max-w-2xl">
+            Technologies I use to build robust and scalable applications.
+          </p>
+        </div>
 
-            <div className="grid md:grid-cols-3 gap-12 mt-16">
-                {skillGroups.map((group, i) => (
-                    <motion.div
-                        key={group.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: i * 0.2 }}
-                        className="p-8 bg-charcoal-light border border-white/5 hover:border-white/20 transition-all group"
-                    >
-                        <h3 className="text-xl font-serif font-bold mb-8 flex items-center gap-3">
-                            <span className="w-8 h-[1px] bg-white/20 group-hover:w-12 transition-all" />
-                            {group.title}
-                        </h3>
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                visible: {
-                                    transition: {
-                                        staggerChildren: 0.1
-                                    }
-                                }
-                            }}
-                            className="flex flex-wrap gap-3"
-                        >
-                            {group.skills.map((skill) => (
-                                <motion.span
-                                    key={skill}
-                                    variants={{
-                                        hidden: { opacity: 0, scale: 0.8 },
-                                        visible: { opacity: 1, scale: 1 }
-                                    }}
-                                    className="px-4 py-2 bg-white/5 border border-white/10 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all cursor-default"
-                                >
-                                    {skill}
-                                </motion.span>
-                            ))}
-                        </motion.div>
-                    </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+            >
+              <h3 className="text-lg font-semibold text-charcoal mb-4">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 bg-background border border-gray-200 text-charcoal text-sm font-medium rounded-lg hover:border-gray-300 transition-colors"
+                  >
+                    {skill}
+                  </span>
                 ))}
-            </div>
-        </section>
-    );
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
