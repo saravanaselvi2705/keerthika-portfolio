@@ -25,7 +25,7 @@ export function PortfolioShowcase({ onSelectProject }: PortfolioShowcaseProps) {
       {/* Header */}
       <div className="text-center max-w-xl mx-auto mb-10 px-6">
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight inline-block relative">
-          Selected Works
+          Featured Works
           <span className="block h-1 w-10 bg-[#FD6F00] mx-auto mt-2.5 rounded-full" />
         </h2>
         <p className="mt-3 text-xs sm:text-sm text-[#A1A1AA]">
@@ -44,8 +44,8 @@ export function PortfolioShowcase({ onSelectProject }: PortfolioShowcaseProps) {
                 key={category}
                 onClick={() => setActiveFilter(category)}
                 className={`relative rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FD6F00] ${isActive
-                    ? "bg-[#FD6F00] text-white shadow-[0_0_15px_rgba(253,111,0,0.35)] scale-105"
-                    : "bg-[#161616] border border-white/10 text-[#A1A1AA] hover:text-white hover:border-white/30"
+                  ? "bg-[#FD6F00] text-white shadow-[0_0_15px_rgba(253,111,0,0.35)] scale-105"
+                  : "bg-[#161616] border border-white/10 text-[#A1A1AA] hover:text-white hover:border-white/30"
                   }`}
               >
                 <span>{category}</span>
