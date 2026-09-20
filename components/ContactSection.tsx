@@ -60,11 +60,11 @@ export function ContactSection() {
               </a>
 
               <a
-                href="tel:+918181082489"
+                href="tel:+9182810 82489"
                 className="flex items-center gap-3 p-3 rounded-xl bg-neutral-900/80 border border-neutral-800 hover:border-orange-500/50 text-neutral-300 hover:text-white transition-all text-sm group"
               >
                 <span className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400">📞</span>
-                <span className="font-mono text-xs sm:text-sm">+91 8181082489</span>
+                <span className="font-mono text-xs sm:text-sm">+91 82810 82489</span>
               </a>
 
               <p className="text-xs text-neutral-500 pt-2 flex items-center gap-1.5">

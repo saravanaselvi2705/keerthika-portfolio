@@ -52,7 +52,7 @@ export const portfolio = {
     behance: "https://www.behance.net/keerthikas4",
     linkedin: "https://www.linkedin.com/in/keerthikamskani",
     instagram: "https://www.instagram.com",
-    whatsapp: "https://wa.me/918181082489",
+    whatsapp: "https://wa.me/9182810 82489",
   },
   stats: [
     { label: "Years Experience", value: "4+" },
