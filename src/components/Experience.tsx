@@ -9,7 +9,7 @@ const experiences = [
     role: "Senior Graphic Designer",
     company: "Creovix Media Group",
     location: "Tegain",
-    duration: "2022 - Present",
+    duration: "2022 - 2026",
     badge: "Current Role",
     description: "Head of visual design directing multi-channel brand campaigns, luxury packaging systems, and digital marketing graphics for enterprise clients.",
     achievements: [
