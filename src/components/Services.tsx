@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Palette, 
-  Sparkles, 
-  Share2, 
-  Box, 
-  CreditCard, 
-  BookOpen, 
-  Printer, 
-  PenTool, 
-  Brush, 
+import {
+  Palette,
+  Sparkles,
+  Share2,
+  Box,
+  CreditCard,
+  BookOpen,
+  Printer,
+  PenTool,
+  Brush,
   ArrowRight,
   Check
 } from "lucide-react";
@@ -95,7 +95,7 @@ export default function Services() {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
-      
+
       // Pre-select service dropdown if element exists
       const selectElement = document.getElementById("service-select") as HTMLSelectElement;
       if (selectElement) {
@@ -107,7 +107,7 @@ export default function Services() {
   return (
     <section id="services" className="py-24 bg-[#090A0F] relative border-t border-white/5">
       <div className="container mx-auto px-6 max-w-7xl">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-4">
