@@ -336,7 +336,7 @@ export const portfolio = {
 
   education: [
     {
-      degree: "Bachelor of Fine Arts (BFA)",
+      degree: "KGCE in fine arts",
       institution: "JJ College of Fine Arts, Thrissur",
       period: "2019 — 2022",
       details: "Rigorous studio training in classical drawing, realism, perspective, human anatomy, and master color theory.",

@@ -10,7 +10,7 @@ export function About() {
   const competencies = [
     {
       title: "Dual Creative Foundation",
-      subtitle: "BFA + B.Sc. Mathematics",
+      subtitle: "KGCE in fine arts + B.Sc. Mathematics",
       desc: "Trained at JJ College of Fine Arts in classical perspective and anatomy, combined with mathematical geometry and optical proportion formulas.",
       icon: GraduationCap,
     },
@@ -78,7 +78,7 @@ export function About() {
                 With over <strong className="text-white">4.5 years of industry experience</strong>, I lead graphic design operations, brand identity development, and high-impact visual campaigns for enterprises, tech ecosystems, and fine art collectors.
               </p>
               <p className="mb-4">
-                My approach is shaped by two complementary disciplines: a <strong className="text-white">Bachelor of Fine Arts (BFA)</strong> from the prestigious <span className="text-[#FD6F00] font-semibold">JJ College of Fine Arts</span> in Thrissur, paired with an analytical foundation in <strong className="text-white">B.Sc. Mathematics</strong> from St. Xavier&apos;s College for Women, Aluva.
+                My approach is shaped by two complementary disciplines: a <strong className="text-white">KGCE in fine arts</strong> from the prestigious <span className="text-[#FD6F00] font-semibold">JJ College of Fine Arts</span> in Thrissur, paired with an analytical foundation in <strong className="text-white">B.Sc. Mathematics</strong> from St. Xavier&apos;s College for Women, Aluva.
               </p>
               <p>
                 This synthesis allows me to build design systems that aren&apos;t just aesthetically captivating, but structurally flawless—whether engineering a 40-foot outdoor highway billboard, typesetting a national newspaper spread, or rendering hyper-realistic charcoal portraits on canvas.

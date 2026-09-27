@@ -11,7 +11,6 @@ export function Hero() {
     { name: "Makt Media", icon: Globe2 },
     { name: "Steyp EdTech", icon: Sparkles },
     { name: "Wise Talkies", icon: Compass },
-    { name: "Redbolt Luggage", icon: Box },
   ];
 
   // Helper for jumping letters with staggered wave animation
