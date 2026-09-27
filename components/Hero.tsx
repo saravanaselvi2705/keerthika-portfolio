@@ -103,7 +103,7 @@ export function Hero() {
             className="absolute top-12 sm:top-16 md:top-20 lg:top-24 left-1/2 -translate-x-1/2 w-[260px] sm:w-[340px] md:w-[400px] lg:w-[460px] xl:w-[500px] aspect-[896/1200] pointer-events-none z-10"
           >
             <Image
-              src="/images/keerthika-cutout.png"
+              src="/images/portfolio/keerthika-sweater-cutout.png"
               alt="Keerthika S - Senior Graphic Designer"
               fill
               priority

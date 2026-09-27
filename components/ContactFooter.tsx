@@ -28,7 +28,7 @@ export function ContactFooter() {
 
         {/* Top Footer Section: Brand Identity & Quick Directory */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10 items-start">
-          
+
           {/* Brand Info (6 cols) */}
           <div className="md:col-span-6 space-y-3">
             <a
@@ -130,7 +130,7 @@ export function ContactFooter() {
 
           <div className="flex items-center gap-4">
             <span className="text-[11px] font-mono text-[#52525B]">
-              Designed in Behance Creator Aesthetic
+              Powered By CREOVIXSTACK
             </span>
             <button
               onClick={scrollToTop}
