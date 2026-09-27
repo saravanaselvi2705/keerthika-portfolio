@@ -10,7 +10,7 @@ interface HeroVisualReelProps {
 }
 
 export function HeroVisualReel({ onSelectProject }: HeroVisualReelProps) {
-  const reelProjects = portfolio.projects.filter((p) => p.featuredInReel).slice(0, 3)
+  const reelProjects = portfolio.projects.slice(0, 3)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 

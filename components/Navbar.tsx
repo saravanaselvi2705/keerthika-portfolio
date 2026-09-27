@@ -18,20 +18,19 @@ export function Navbar() {
 
   const navLinks = [
     { label: "Home", href: "#top" },
+    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "About Me", href: "#about" },
-    { label: "Portfolio", href: "#portfolio" },
+    { label: "Featured Works", href: "#portfolio" },
     { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" },
   ]
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#121212]/90 backdrop-blur-xl border-b border-white/10 py-4 shadow-xl"
-          : "bg-transparent py-6 border-b border-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-[#0c0c0c]/85 backdrop-blur-xl border-b border-white/10 py-4 shadow-2xl"
+        : "bg-transparent py-6 border-b border-transparent"
+        }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
         {/* Brand Logo on Left: "Keerthika S." with Radiant Orange Dot */}

@@ -8,22 +8,42 @@ export function Toolkit() {
     {
       title: "Design & Production Suite",
       icon: Box,
-      items: portfolio.toolkit.designAndProduction,
+      items: [
+        { name: "Adobe Illustrator", level: "Advanced Vector" },
+        { name: "Adobe Photoshop", level: "Key Visuals & Retouching" },
+        { name: "Adobe InDesign", level: "Newspaper & Editorial" },
+        { name: "CorelDRAW", level: "Vector Layouts" },
+      ],
     },
     {
       title: "Specialized Print & Pre-Press",
       icon: Layers,
-      items: portfolio.toolkit.specializedPrint,
+      items: [
+        { name: "Newspaper Layout Creation", level: "Typesetting & CMYK" },
+        { name: "Packaging Dielines", level: "Structural Cuts" },
+        { name: "Spot Color & Separation", level: "Offset & Flexo" },
+        { name: "Large Format Hoardings", level: "Billboards & Signage" },
+      ],
     },
     {
       title: "Fine Art & Tactile Media",
       icon: Feather,
-      items: portfolio.toolkit.fineArtPhysical,
+      items: [
+        { name: "Charcoal Realism", level: "Portraiture" },
+        { name: "Graphite Detailing", level: "Anatomy & Light" },
+        { name: "Canvas Acrylic & Oil", level: "Classical Studies" },
+        { name: "Mixed Media", level: "Tactile Experiments" },
+      ],
     },
     {
       title: "Systems & Visual Strategy",
       icon: Grid,
-      items: portfolio.toolkit.systemsStrategy,
+      items: [
+        { name: "Brand Identity Systems", level: "Style Guides" },
+        { name: "Visual Direction", level: "Conclaves & Expos" },
+        { name: "Marketing Collateral", level: "Multi-Format" },
+        { name: "Typography Hierarchy", level: "Editorial Standards" },
+      ],
     },
   ]
 

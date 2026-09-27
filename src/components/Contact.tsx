@@ -31,7 +31,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-[#090A0F] relative border-t border-white/5">
       <div className="container mx-auto px-6 max-w-7xl">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-4">
@@ -47,7 +47,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
@@ -60,7 +60,7 @@ export default function Contact() {
               <h3 className="text-xl font-serif font-bold text-foreground mb-4">
                 Get in Touch
               </h3>
-              
+
               {/* Email */}
               <a
                 href="mailto:keerthika2306@gmail.com"
@@ -90,7 +90,7 @@ export default function Contact() {
                 <div>
                   <div className="text-[11px] font-semibold uppercase tracking-wider text-muted">WhatsApp / Phone</div>
                   <div className="text-sm font-semibold text-foreground group-hover:text-emerald-300 transition-colors">
-                    +91 82810 82489
+                    +91 8281082489
                   </div>
                 </div>
               </a>
@@ -129,7 +129,7 @@ export default function Contact() {
             className="lg:col-span-7"
           >
             <div className="p-8 sm:p-10 rounded-3xl bg-surface-card border border-white/10 shadow-2xl">
-              
+
               {submitted ? (
                 <div className="py-12 text-center space-y-4">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto">
@@ -150,7 +150,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  
+
                   {/* Name & Email Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>

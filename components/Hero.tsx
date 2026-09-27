@@ -1,267 +1,211 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform, useReducedMotion, type Variants } from "framer-motion"
-import { ArrowUpRight, ExternalLink, ChevronDown } from "lucide-react"
-import Image from "next/image"
-import { portfolio } from "@/src/data/portfolio"
-
-const heroImages = [
-  { src: "/images/hero-mockups/wise-talkies.png", alt: "Wise Talkies Poster Design" },
-  { src: "/images/hero-mockups/branding.png", alt: "Editorial & Brochure Layout" },
-  { src: "/images/hero-mockups/packaging.png", alt: "Packaging Design Work" },
-  { src: "/images/hero-mockups/packaging-bag.png", alt: "Packaging Bag & Dieline" },
-  { src: "/images/hero-mockups/masterclass-grid.png", alt: "Masterclass Still Artwork" },
-  { src: "/images/hero-mockups/editorial-spread.png", alt: "Editorial Spread" },
-  { src: "/images/hero-mockups/Cards.png", alt: "Cards" },
-  { src: "/images/hero-mockups/Idcards.png", alt: "Id Cards" },
-  { src: "/images/hero-mockups/tshirt.png", alt: "Tshirt" },
-  { src: "/images/hero-mockups/Indosudan.png", alt: "Indo Sudan" },
-
-]
-
-const textContainerVariants = (delayChildren = 0, staggerSpeed = 0.03): Variants => ({
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: staggerSpeed,
-      delayChildren: delayChildren,
-    },
-  },
-})
-
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", damping: 16, stiffness: 180 },
-  },
-}
-
-function AnimatedText({
-  text,
-  className = "",
-  delay = 0,
-  stagger = 0.025,
-  shouldReduceMotion = false,
-}: {
-  text: string
-  className?: string
-  delay?: number
-  stagger?: number
-  shouldReduceMotion?: boolean | null
-}) {
-  if (shouldReduceMotion) return <span className={className}>{text}</span>
-
-  return (
-    <motion.span
-      variants={textContainerVariants(delay, stagger)}
-      initial="hidden"
-      animate="visible"
-      className={`inline-flex flex-wrap ${className}`}
-      aria-label={text}
-    >
-      {Array.from(text).map((char, index) => (
-        <motion.span key={`${char}-${index}`} variants={charVariants} className="inline-block">
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </motion.span>
-  )
-}
+import { motion } from "framer-motion";
+import { ArrowUpRight, Sparkles, Layers, Box, Compass, Globe2 } from "lucide-react";
+import Image from "next/image";
+import { portfolio } from "@/src/data/portfolio";
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion()
-  const { scrollY } = useScroll()
+  const partnerBrands = [
+    { name: "Talrop", icon: Layers },
+    { name: "Makt Media", icon: Globe2 },
+    { name: "Steyp EdTech", icon: Sparkles },
+    { name: "Wise Talkies", icon: Compass },
+    { name: "Redbolt Luggage", icon: Box },
+  ];
 
-  const headlineY = useTransform(scrollY, [0, 480], [0, 24])
-  const headlineOpacity = useTransform(scrollY, [0, 480], [1, 0.9])
-
-  const name = portfolio.name || "Keerthika S"
-  const leadRole = portfolio.roleLead || "Graphic Designer"
-  const secondRole = portfolio.roleSecond || "& Fine Artist"
-
-  // Duplicate the 6 images to 12 items for an uninterrupted top-to-down loop
-  const loopedImages = [...heroImages, ...heroImages]
+  // Helper for jumping letters with staggered wave animation
+  const renderJumpingLetters = (
+    text: string,
+    baseDelay: number,
+    charClassName: string = ""
+  ) => {
+    return text.split("").map((char, index) => (
+      <motion.span
+        key={`${char}-${index}`}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{
+          opacity: 1,
+          y: [0, -18, 4, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.4, delay: baseDelay + index * 0.04 },
+          y: {
+            duration: 1.15,
+            repeat: Infinity,
+            repeatDelay: 3.2,
+            delay: baseDelay + index * 0.07,
+            ease: [0.34, 1.56, 0.64, 1], // elastic bounce
+          },
+        }}
+        whileHover={{
+          y: -22,
+          scale: 1.12,
+          color: "#FD6F00",
+          transition: { type: "spring", stiffness: 450, damping: 10 },
+        }}
+        className={`inline-block select-none cursor-default will-change-transform ${charClassName}`}
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
+  };
 
   return (
     <section
       id="top"
-      className="relative min-h-[92vh] flex items-center pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-[#0c0c0c]"
+      className="relative min-h-[95vh] sm:min-h-screen bg-[#080808] text-white flex flex-col justify-between pt-24 sm:pt-28 pb-8 overflow-hidden"
     >
-      {/* Background Ambience */}
-      <div className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FD6F00]/12 rounded-full blur-[160px] pointer-events-none z-0" />
+      {/* Planetary Golden Orbital Glow Curve (from Reference Image) */}
+      <div className="absolute top-[38%] right-[-10%] sm:right-[5%] w-[550px] sm:w-[750px] lg:w-[900px] h-[350px] sm:h-[450px] rounded-[100%] border-t-2 border-[#FD6F00]/30 bg-gradient-to-b from-[#FD6F00]/10 via-[#FD6F00]/5 to-transparent blur-[1px] pointer-events-none z-0 transform -rotate-12" />
 
-      {/* Grid Pattern */}
-      <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-0"
-        style={{
-          maskImage: "radial-gradient(ellipse 80% 70% at 50% 40%, black 50%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 40%, black 50%, transparent 100%)",
-        }}
-      />
+      {/* Ambient Warm Golden Aura */}
+      <div className="absolute top-[28%] left-1/2 -translate-x-1/2 w-[650px] sm:w-[850px] h-[450px] bg-gradient-to-tr from-[#FD6F00]/15 via-amber-500/10 to-transparent blur-[150px] rounded-full pointer-events-none z-0" />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-8 items-center">
+      {/* Main Composition Stage */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex-1 flex flex-col justify-center">
 
-          {/* LEFT COLUMN: Clean Left-Aligned Typography & Actions */}
-          <div className="flex flex-col items-start text-left">
+        {/* Hero Upper Headline Block: James Lux Style */}
+        <div className="relative w-full flex flex-col items-center select-none pt-4 sm:pt-8">
 
-            {/* Animated Name */}
-            <div className="mb-4">
-              <AnimatedText
-                text={name}
-                delay={0.1}
-                stagger={0.035}
-                shouldReduceMotion={shouldReduceMotion}
-                className="text-base sm:text-xl font-bold tracking-[0.2em] text-[#E4E4E7] uppercase"
-              />
+          {/* Row 1: Giant Full Name Typography with Text Jumping Animation */}
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[110px] xl:text-[132px] font-black uppercase tracking-tight text-white leading-none text-center drop-shadow-[0_10px_35px_rgba(0,0,0,0.85)] z-0 flex flex-wrap justify-center items-center">
+            {renderJumpingLetters("KEERTHIKA S", 0.1)}
+          </h1>
+
+          {/* Row 2: Flanking Roles (GRAPHIC [portrait gap] DESIGNER) */}
+          {/* Using strict 3-segment grid with a reserved center corridor so GRAPHIC is NEVER hidden */}
+          <div className="w-full grid grid-cols-12 items-center mt-2 sm:mt-4 z-0">
+
+            {/* Left: GRAPHIC (Ends before her head with ample breathing room) */}
+            <div className="col-span-4 sm:col-span-4 flex justify-end pr-3 sm:pr-8 md:pr-12 lg:pr-16 text-white/90">
+              <span className="text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-light tracking-[0.14em] sm:tracking-[0.18em] uppercase font-sans drop-shadow-md whitespace-nowrap">
+                {renderJumpingLetters("GRAPHIC", 0.6)}
+              </span>
             </div>
 
-            {/* Role Headline */}
-            <motion.h1
-              style={shouldReduceMotion ? undefined : { y: headlineY, opacity: headlineOpacity }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6 will-change-transform"
-            >
-              <span className="block text-[#FD6F00]">
-                <AnimatedText
-                  text={leadRole}
-                  delay={0.45}
-                  stagger={0.022}
-                  shouldReduceMotion={shouldReduceMotion}
-                />
-              </span>
-              <span className="block text-white mt-1">
-                <AnimatedText
-                  text={secondRole}
-                  delay={0.9}
-                  stagger={0.022}
-                  shouldReduceMotion={shouldReduceMotion}
-                />
-              </span>
-            </motion.h1>
+            {/* Center: Reserved space for her head and neck */}
+            <div className="col-span-4 sm:col-span-4 pointer-events-none" />
 
-            {/* Bio */}
-            <p className="text-base sm:text-lg text-[#A1A1AA] max-w-xl leading-relaxed mb-8">
-              {portfolio.bio}
+            {/* Right: DESIGNER (Starts after her head with ample breathing room) */}
+            <div className="col-span-4 sm:col-span-4 flex justify-start pl-3 sm:pl-8 md:pl-12 lg:pl-16 text-white/90">
+              <span className="text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-light tracking-[0.14em] sm:tracking-[0.18em] uppercase font-sans drop-shadow-md whitespace-nowrap">
+                {renderJumpingLetters("DESIGNER", 0.85)}
+              </span>
+            </div>
+
+          </div>
+
+          {/* Center Cutout Portrait (Background Removed - Centered cleanly over the center gap) */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-12 sm:top-16 md:top-20 lg:top-24 left-1/2 -translate-x-1/2 w-[260px] sm:w-[340px] md:w-[400px] lg:w-[460px] xl:w-[500px] aspect-[896/1200] pointer-events-none z-10"
+          >
+            <Image
+              src="/images/keerthika-cutout.png"
+              alt="Keerthika S - Senior Graphic Designer"
+              fill
+              priority
+              sizes="(max-width: 640px) 260px, (max-width: 1024px) 400px, 500px"
+              className="object-contain object-top filter contrast-[1.03]"
+            />
+          </motion.div>
+
+        </div>
+
+        {/* Lower Content Grid: Left Bio & CTAs (Flanking the Torso just like James Lux) */}
+        <div className="relative z-20 mt-36 sm:mt-52 md:mt-64 lg:mt-72 max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-4">
+
+          {/* Left Column: Freelance Status, Bio, Schedule Call Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="md:col-span-5 lg:col-span-4 text-left space-y-4 sm:space-y-5"
+          >
+            {/* Open for freelance works pill */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#141416]/90 border border-white/10 backdrop-blur-xl shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22c55e] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22c55e]" />
+              </span>
+              <span className="text-xs font-medium text-[#E4E4E7] tracking-wide">
+                Open for freelance works.
+              </span>
+            </div>
+
+            {/* Bio Statement */}
+            <p className="text-sm sm:text-base text-[#D4D4D8] leading-relaxed font-normal">
+              Hey there! I&apos;m a <strong className="text-white font-semibold">Senior Graphic Designer &amp; Lead Visual Artist</strong> with over 4.5 years of experience in brand identity, newspaper layout, digital marketing, and fine arts.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 mb-8">
-              <a
-                href={portfolio.links.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Behance Profile"
-                className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-[#1E1E1E]/90 backdrop-blur-md text-white hover:border-[#FD6F00] hover:text-[#FD6F00] hover:bg-[#252525] transition-all hover:scale-110 shadow-sm"
-              >
-                <span className="font-bold text-xs tracking-tighter">Bē</span>
-              </a>
-              <a
-                href={portfolio.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-[#1E1E1E]/90 backdrop-blur-md text-white hover:border-[#FD6F00] hover:text-[#FD6F00] hover:bg-[#252525] transition-all hover:scale-110 shadow-sm"
-              >
-                <span className="font-bold text-xs">in</span>
-              </a>
-              <a
-                href={portfolio.links.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram Profile"
-                className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-[#1E1E1E]/90 backdrop-blur-md text-white hover:border-[#FD6F00] hover:text-[#FD6F00] hover:bg-[#252525] transition-all hover:scale-110 shadow-sm"
-              >
-                <span className="font-bold text-xs">ig</span>
-              </a>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Schedule Call Button (White rounded pill matching James Lux style) */}
+            <div className="pt-1 flex items-center gap-3">
               <a
                 href={portfolio.links.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-radial-glow inline-flex items-center gap-2 rounded-full bg-[#FD6F00] hover:bg-[#E05E00] px-8 py-4 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FD6F00]"
+                className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-neutral-200 text-black px-7 py-3.5 text-sm font-bold shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
               >
-                <span>Hire Me</span>
-                <ArrowUpRight size={16} />
+                <span>Schedule Call</span>
+                <ArrowUpRight size={16} className="text-black" />
               </a>
 
               <a
-                href={portfolio.links.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#1E1E1E]/90 backdrop-blur-md px-7 py-4 text-sm font-semibold text-white hover:border-[#FD6F00] hover:bg-[#252525] transition-all hover:scale-105"
+                href="#portfolio"
+                className="inline-flex items-center gap-2 rounded-full bg-[#18181A]/90 hover:bg-[#222226] text-white border border-white/15 px-6 py-3.5 text-sm font-semibold transition-all hover:border-[#FD6F00] backdrop-blur-md"
               >
-                <span>View Behance</span>
-                <ExternalLink size={15} className="text-[#A1A1AA]" />
+                <span>View Works</span>
               </a>
             </div>
+          </motion.div>
 
-          </div>
+          {/* Center Column: Spacer for Cutout Torso */}
+          <div className="hidden md:block md:col-span-4 lg:col-span-5 pointer-events-none" />
 
-          {/* RIGHT COLUMN: Infinite Vertical Top-to-Down Showcase */}
-          <div
-            className="relative h-[560px] lg:h-[620px] w-full flex justify-center lg:justify-end items-start overflow-hidden"
-            style={{
-              maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-            }}
+          {/* Right Column: Mini Metric / Creative Pillars */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="hidden lg:flex lg:col-span-3 flex-col items-end text-right space-y-3"
           >
-            <motion.div
-              animate={shouldReduceMotion ? undefined : { y: ["-50%", "0%"] }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="flex flex-col gap-10 w-60 sm:w-72 lg:w-80 h-fit self-start will-change-transform"
-            >
-              {loopedImages.map((item, index) => (
-                <div
-                  key={`${item.src}-${index}`}
-                  className="relative w-full aspect-[3/4] shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_20px_30px_rgba(0,0,0,0.7)]"
-                  style={{ aspectRatio: "3/4", minHeight: "320px" }}
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    unoptimized
-                    priority={index < 3}
-                    loading={index < 3 ? "eager" : "lazy"}
-                    className="object-contain"
-                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 288px, 320px"
-                    onError={() => {
-                      console.error("Image failed to load:", item.src)
-                    }}
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
+            <div className="p-3.5 rounded-2xl bg-[#141416]/80 border border-white/10 backdrop-blur-xl">
+              <div className="text-2xl font-black text-[#FD6F00]">4.5+ Yrs</div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA]">Agency &amp; Art Practice</div>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-[#141416]/80 border border-white/10 backdrop-blur-xl">
+              <div className="text-2xl font-black text-white">40+ Brands</div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA]">Launched Across Kerala</div>
+            </div>
+          </motion.div>
 
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="mt-14 lg:mt-20 flex justify-center">
-          <a
-            href="#services"
-            className="scroll-cue-indicator group inline-flex flex-col items-center gap-2 text-xs font-mono tracking-widest text-[#A1A1AA] hover:text-[#FD6F00] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FD6F00]"
-            aria-label="Scroll to explore services and portfolio"
-          >
-            <span className="uppercase text-[11px] tracking-[0.22em] text-[#71717A] group-hover:text-[#FD6F00] transition-colors">
-              Scroll to explore
-            </span>
-            <div className="flex size-7 items-center justify-center rounded-full border border-white/15 bg-[#1E1E1E] text-[#FD6F00] shadow-md group-hover:border-[#FD6F00]/60 transition-colors">
-              <ChevronDown size={14} />
-            </div>
-          </a>
+      </div>
+
+      {/* Bottom Partner Brand Row (Matching James Lux bottom bar) */}
+      <div className="w-full border-t border-white/10 bg-[#080808]/90 backdrop-blur-xl py-5 mt-8 sm:mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-10 text-xs sm:text-sm font-mono tracking-wider text-[#8E8E93]">
+            {partnerBrands.map((brand) => {
+              const Icon = brand.icon;
+              return (
+                <div
+                  key={brand.name}
+                  className="flex items-center gap-2 hover:text-white transition-colors duration-200 cursor-default group"
+                >
+                  <Icon size={16} className="text-[#FD6F00] group-hover:scale-110 transition-transform" />
+                  <span className="font-semibold tracking-widest uppercase">{brand.name}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
+
     </section>
-  )
+  );
 }

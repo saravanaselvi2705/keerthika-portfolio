@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Eye, X, ArrowUpRight, Calendar, User } from "lucide-react";
+import { Sparkles, Eye, X, ArrowUpRight, Calendar, User, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 export interface Project {
   id: string;
   title: string;
-  category: "Brand Identity" | "Social Media" | "Packaging Design" | "Print & Illustration";
+  category: "Brand Identity" | "Social Media" | "Packaging Design" | "Print & Illustration" | "Key Visuals";
   description: string;
   image: string;
   additionalImages?: string[]; // Added gallery asset support
@@ -24,22 +24,34 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    id: "mediaone-branding",
-    title: "Mediaone Media – Brand Identity & Guidelines",
+    id: "corporate-brand-identity",
+    title: "Corporate Identity & Merchandise Ecosystem",
     category: "Brand Identity",
-    description: "Complete corporate identity system including primary & secondary logo marks, and style guides.",
-    image: "/images/portfolio/corporate-branding.png",
+    description: "Complete visual identity guidelines, corporate apparel, executive stationery, and brand collateral systems.",
+    image: "/images/portfolio/corporate-branding/corporate-branding.png",
     additionalImages: [
-      "/images/portfolio/wisetalkies-suite.png",
-      "/images/portfolio/corporate-stationery.png"
+      "/images/portfolio/corporate-branding/image1.jpeg",
+      "/images/portfolio/corporate-branding/image2.jpeg",
+      "/images/portfolio/corporate-branding/image3.jpeg",
+      "/images/portfolio/corporate-branding/image4.jpeg",
+      "/images/portfolio/corporate-branding/branding-5.jpeg",
+      "/images/portfolio/corporate-branding/branding-6.jpeg",
+      "/images/portfolio/corporate-branding/branding-7.jpeg",
+      "/images/portfolio/corporate-branding/branding-8.jpeg",
+      "/images/portfolio/corporate-branding/branding-9.jpeg",
+      "/images/portfolio/corporate-branding/branding-10.jpeg",
+      "/images/portfolio/corporate-branding/branding-11.jpeg",
+      "/images/portfolio/corporate-branding/branding-12.jpeg",
+      "/images/portfolio/corporate-branding/branding-13.jpeg",
+      "/images/portfolio/corporate-branding/branding-14.jpeg"
     ],
-    tags: ["Logo System", "Brand Guidelines", "Typography System", "Stationery"],
-    overview: "Mediaone required a modern, unified visual identity to reflect their growth across print, digital channels, and client deliverables.",
-    challenge: "The brand lacked visual consistency across print collateral and digital touchpoints, requiring a scalable design language.",
-    process: "Conducted brand audits, established strict color and typography hierarchies, and created versatile logo lockups for multi-format applications.",
-    deliverables: ["Comprehensive Brand Guidelines", "Vector Logo Suites", "Corporate Stationery Kits", "Digital Asset Templates"],
-    results: "Successfully standardized brand collateral across all regional offices and digital campaigns.",
-    client: "Mediaone / Talrop",
+    tags: ["Logo System", "Corporate Identity", "Merchandise", "Brand Guidelines"],
+    overview: "Full-scale corporate identity development for tech and service brands across physical, digital, and outdoor media.",
+    challenge: "Building brand systems that scale seamlessly from 32px digital favicons to 40-foot outdoor highway billboards.",
+    process: "Developed minimalist logomarks with strict clear-space formulas, consistent merchandise applications, and executive stationery.",
+    deliverables: ["Billboard Art", "Lanyards & ID Kits", "Company Apparel", "Stationery"],
+    results: "Successfully launched 3 corporate brand systems with complete visual guidelines and cross-medium consistency.",
+    client: "AidMak, HOSFACE & Spinvic",
     year: "2025"
   },
   {
@@ -47,10 +59,18 @@ const projects: Project[] = [
     title: "Wise Talkies – Global Media Campaign & Tour Art",
     category: "Social Media",
     description: "High-impact event promotional key visuals, celebrity tour posters, and interactive course brochures.",
-    image: "/images/portfolio/wisetalkies-suite.png",
+    image: "/images/portfolio/wisetalkies-suite/wisetalkies-suite.png",
     additionalImages: [
-      "/images/portfolio/masterclass-keyart.png",
-      "/images/hero-mockups/masterclass-grid.png"
+      "/images/portfolio/wisetalkies-suite/Image1.jpeg",
+      "/images/portfolio/wisetalkies-suite/image2.jpeg",
+      "/images/portfolio/wisetalkies-suite/image3.jpeg",
+      "/images/portfolio/wisetalkies-suite/image4.jpeg",
+      "/images/portfolio/wisetalkies-suite/image5.jpeg",
+      "/images/portfolio/wisetalkies-suite/image6.jpeg",
+      "/images/portfolio/wisetalkies-suite/image7.jpeg",
+      "/images/portfolio/wisetalkies-suite/image8.jpeg",
+      "/images/portfolio/wisetalkies-suite/image9.jpeg",
+      "/images/portfolio/wisetalkies-suite/image10.jpeg"
     ],
     tags: ["Poster Design", "Social Media Kits", "Print Media", "Key Visuals"],
     overview: "End-to-end design production for the Wise Talkies learning ecosystem featuring masterclasses and international event tours.",
@@ -66,10 +86,15 @@ const projects: Project[] = [
     title: "Redbolt Luggage – E-Commerce & Festive Ads",
     category: "Packaging Design",
     description: "Festival sales promotional campaign, digital storefront visuals, and product presentation layouts.",
-    image: "/images/portfolio/ecom-redbolt.png",
+    image: "/images/portfolio/ecom-rebolt/ecom-redbolt.png",
     additionalImages: [
-      "/images/hero-mockups/packaging.png",
-      "/images/hero-mockups/packaging-bag.png"
+      "/images/portfolio/ecom-rebolt/rebolt-1.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-2.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-3.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-4.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-5.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-6.jpeg",
+      "/images/portfolio/ecom-rebolt/rebolt-7.jpeg"
     ],
     tags: ["Product Showcase", "E-Commerce", "Ad Creatives", "Retail Assets"],
     overview: "Festival sales promotional campaign and digital storefront visuals for ergonomic backpacks and luggage.",
@@ -85,9 +110,10 @@ const projects: Project[] = [
     title: "Handcrafted Fine Art & Realistic Commissions",
     category: "Print & Illustration",
     description: "Classical charcoal portraits, realistic color-pencil studies, and geometric line compositions.",
-    image: "/images/portfolio/fine-art-portraits.png",
+    image: "/images/portfolio/fine-arts/fine-art-portraits.png",
     additionalImages: [
-      "/images/hero-mockups/editorial-spread.png"
+      "/images/portfolio/fine-arts/image5.jpeg",
+      "/images/portfolio/fine-arts/image6.jpeg"
     ],
     tags: ["Classical Art", "Portraiture", "Handcrafted", "Ink & Charcoal"],
     overview: "Series of private fine art commissions executing classical hyperrealistic portraiture and ink line studies.",
@@ -97,19 +123,56 @@ const projects: Project[] = [
     results: "Delivered 15+ commissioned original artworks to private collectors.",
     client: "Private Art Commissions",
     year: "2024"
+  },
+  {
+    id: "talrop-stationery-conclave",
+    title: "Edu-Tech Conclave Collateral & Stationery",
+    category: "Packaging Design",
+    description: "Event entry passes, eco-kraft shopping bags, business cards, and official press kit collateral.",
+    image: "/images/portfolio/corporate-stationary/corporate-stationery.png",
+    additionalImages: [
+      "/images/portfolio/corporate-stationary/img1.jpeg",
+      "/images/portfolio/corporate-stationary/img2.jpeg",
+      "/images/portfolio/corporate-stationary/img3.jpeg",
+      "/images/portfolio/corporate-stationary/img4.jpeg"
+    ],
+    tags: ["Event Kit", "Print Prepress", "Bag Dieline", "Corporate Stationery"],
+    overview: "Comprehensive print collateral package for international executive conclaves and tech park launches.",
+    challenge: "Strict color-matching requirements across textured kraft paper, gloss cardstock, and fabric lanyard ribbons.",
+    process: "Configured unified spot-color CMYK profiles with QR-integrated security passes and die-cut bags.",
+    deliverables: ["Security Passes", "Eco Kraft Bag", "Spot UV Cards", "Press Kit"],
+    results: "Produced for 1,000+ conclave delegates with pristine print execution and zero color mismatch.",
+    client: "Talrop Techies Park",
+    year: "2025"
+  },
+  {
+    id: "masterclass-director-series",
+    title: "Masterclass Director Key Art & OTT Media",
+    category: "Key Visuals",
+    description: "Cinematic lighting layouts, digital thumbnails, promotional director banners, and OTT campaign visuals.",
+    image: "/images/portfolio/masterclass-keyart.png",
+    additionalImages: [],
+    tags: ["Key Visuals", "Streaming Art", "Film Media", "Thumbnail Design"],
+    overview: "Visual hierarchy and promotional creative suite honoring national award-winning filmmakers and artists.",
+    challenge: "Harmonizing photography from distinct live sets and production eras into a unified visual standard.",
+    process: "Developed warm ambient backlighting formulas and clean lower-third typographic identity ribbons.",
+    deliverables: ["Director Banner Suite", "OTT Thumbnails", "Social Teasers", "Key Art"],
+    results: "Achieved 100k+ digital views across streaming and academy promotional channels.",
+    client: "Talrop Digital Academy",
+    year: "2025"
   }
 ];
 
-export function FeaturedProjects() {
+export default function FeaturedProjects() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const categories = ["All", "Brand Identity", "Social Media", "Packaging Design", "Print & Illustration"];
+  const categories = ["All", "Brand Identity", "Social Media", "Packaging Design", "Print & Illustration", "Key Visuals"];
 
   const filteredProjects = selectedCategory === "All"
     ? projects
-    : projects.filter(p => p.category === selectedCategory);
+    : projects.filter(p => p.category === selectedCategory || p.tags.some(t => t.toLowerCase() === selectedCategory.toLowerCase()));
 
   const handleOpenModal = (project: Project) => {
     setActiveProject(project);
@@ -129,7 +192,7 @@ export function FeaturedProjects() {
           </h2>
           <div className="h-1 w-16 bg-[#FD6F00] mx-auto mt-4 rounded-full" />
           <p className="mt-4 text-[#A1A1AA] text-sm sm:text-base">
-            High-impact brand identity systems, digital campaigns, and visual art.
+            High-impact brand identity systems, digital campaigns, packaging dielines, and visual art.
           </p>
         </div>
 
@@ -140,8 +203,8 @@ export function FeaturedProjects() {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${selectedCategory === cat
-                  ? "bg-[#FD6F00] text-white shadow-[0_0_20px_rgba(253,111,0,0.4)] scale-105"
-                  : "bg-[#18181B] text-[#A1A1AA] border border-white/10 hover:text-white hover:border-white/30"
+                ? "bg-[#FD6F00] text-white shadow-[0_0_20px_rgba(253,111,0,0.4)] scale-105"
+                : "bg-[#18181B] text-[#A1A1AA] border border-white/10 hover:text-white hover:border-white/30"
                 }`}
             >
               {cat}
@@ -150,23 +213,23 @@ export function FeaturedProjects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {filteredProjects.map((project) => (
             <motion.div
               layout
               key={project.id}
               onClick={() => handleOpenModal(project)}
-              className="group cursor-pointer rounded-2xl border border-white/10 bg-[#141414] overflow-hidden flex flex-col transition-all duration-300 hover:border-[#FD6F00]/70 hover:shadow-[0_0_30px_rgba(253,111,0,0.18)]"
+              className="group cursor-pointer rounded-2xl border border-white/10 bg-[#141414] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#FD6F00]/70 hover:shadow-[0_0_30px_rgba(253,111,0,0.18)]"
             >
               {/* Standout Featured Image Display */}
-              <div className="relative w-full h-64 sm:h-72 bg-[#101010] border-b border-white/5 overflow-hidden flex items-center justify-center p-4">
+              <div className="relative w-full h-64 sm:h-72 bg-[#101010] border-b border-white/5 overflow-hidden flex items-center justify-center p-0">
                 <div className="relative w-full h-full transform-gpu transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     unoptimized
-                    className="object-contain"
+                    className="object-cover" // <--- Change object-contain to object-cover here
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
                 </div>
@@ -214,7 +277,7 @@ export function FeaturedProjects() {
 
       </div>
 
-      {/* Project Modal Gallery View */}
+      {/* Project Modal Gallery Carousel View */}
       <AnimatePresence>
         {activeProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8">
@@ -249,7 +312,7 @@ export function FeaturedProjects() {
               <div className="overflow-y-auto p-6 sm:p-8 space-y-6 custom-scrollbar">
 
                 {/* Active Preview Image */}
-                <div className="relative w-full h-72 sm:h-96 bg-[#0a0a0a] rounded-xl border border-white/5 flex items-center justify-center p-4">
+                <div className="relative w-full h-72 sm:h-96 md:h-[430px] bg-[#0a0a0a] rounded-xl border border-white/5 flex items-center justify-center p-4 overflow-hidden group">
                   <div className="relative w-full h-full">
                     <Image
                       src={allModalImages[activeImageIndex] || activeProject.image}
@@ -259,23 +322,69 @@ export function FeaturedProjects() {
                       className="object-contain"
                     />
                   </div>
+
+                  {/* Previous / Next Arrow Controls */}
+                  {allModalImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : allModalImages.length - 1));
+                        }}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 size-10 rounded-full bg-black/75 hover:bg-[#FD6F00] text-white flex items-center justify-center border border-white/20 transition-all duration-200 hover:scale-110 shadow-lg backdrop-blur-sm z-10"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft size={22} />
+                      </button>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImageIndex((prev) => (prev < allModalImages.length - 1 ? prev + 1 : 0));
+                        }}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 size-10 rounded-full bg-black/75 hover:bg-[#FD6F00] text-white flex items-center justify-center border border-white/20 transition-all duration-200 hover:scale-110 shadow-lg backdrop-blur-sm z-10"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight size={22} />
+                      </button>
+
+                      {/* Image Counter Badge */}
+                      <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono text-white/90 border border-white/10 z-10">
+                        {activeImageIndex + 1} / {allModalImages.length}
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                {/* Thumbnail Strip for Asset Browsing */}
+                {/* Horizontal Scrolling Gallery Carousel */}
                 {allModalImages.length > 1 && (
-                  <div className="flex items-center gap-3 overflow-x-auto pb-2">
-                    {allModalImages.map((imgSrc, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveImageIndex(idx)}
-                        className={`relative w-20 h-16 rounded-lg overflow-hidden border shrink-0 bg-[#0d0d0d] transition-all ${activeImageIndex === idx
-                            ? "border-[#FD6F00] shadow-[0_0_12px_rgba(253,111,0,0.5)] scale-105"
-                            : "border-white/10 opacity-60 hover:opacity-100"
-                          }`}
-                      >
-                        <Image src={imgSrc} alt="Asset thumbnail" fill unoptimized className="object-contain p-1" />
-                      </button>
-                    ))}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block">
+                      Campaign Asset Gallery ({allModalImages.length} items)
+                    </span>
+                    <div className="flex items-center gap-4 overflow-x-auto pb-3 pt-1 px-1 custom-scrollbar scroll-smooth">
+                      {allModalImages.map((imgSrc, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => setActiveImageIndex(idx)}
+                          className={`relative w-36 sm:w-44 aspect-[4/3] rounded-xl overflow-hidden shrink-0 cursor-pointer border transition-all duration-300 bg-[#0d0d0d] group ${activeImageIndex === idx
+                            ? "border-[#FD6F00] shadow-[0_0_15px_rgba(253,111,0,0.4)] scale-102"
+                            : "border-white/10 opacity-70 hover:opacity-100 hover:border-white/30"
+                            }`}
+                        >
+                          <Image
+                            src={imgSrc}
+                            alt={`Gallery asset ${idx + 1}`}
+                            fill
+                            unoptimized
+                            className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute bottom-1.5 right-1.5 bg-black/70 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-mono text-white">
+                            0{idx + 1}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 

@@ -72,16 +72,21 @@ export function PortfolioShowcase({ onSelectProject }: PortfolioShowcaseProps) {
                 aria-label={`View ${project.title}`}
               >
                 {/* Image Stage */}
-                <div className="relative w-full h-44 sm:h-52 bg-[#101010] border-b border-white/5 overflow-hidden flex items-center justify-center p-3">
-                  <div className="relative w-full h-full transform-gpu transition-transform duration-300 ease-out group-hover:scale-105">
+                <div className="relative w-full h-56 sm:h-64 bg-[#101010] border-b border-white/5 overflow-hidden flex items-center justify-center p-0">
+                  <div className="relative w-full h-full transform-gpu transition-transform duration-500 ease-out group-hover:scale-105">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       unoptimized
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 360px"
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
                     />
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FD6F00] text-white text-xs font-bold shadow-lg">
+                      Quick View
+                    </span>
                   </div>
                 </div>
 

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Navbar } from "@/components/Navbar"
 import { Hero } from "@/components/Hero"
+import { About } from "@/components/About"
 import { Capabilities } from "@/components/Capabilities"
 import { PortfolioShowcase } from "@/components/PortfolioShowcase"
 import { Experience } from "@/components/Experience"
@@ -15,14 +16,17 @@ export default function Page() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
-    <main id="top" className="min-h-screen bg-[#121212] text-white selection:bg-[#FD6F00] selection:text-white">
+    <main id="top" className="min-h-screen bg-[#0c0c0c] text-white selection:bg-[#FD6F00] selection:text-white">
       {/* Brand Header & Centered Navigation with Radiant Orange Dot */}
       <Navbar />
 
       {/* Hero Section: Left Bio/Stats & Right Featured Creative Showcase */}
       <Hero />
 
-      {/* Services / Capabilities Section: 4 #1E1E1E Cards */}
+      {/* Editorial About Me & Craft Background */}
+      <About />
+
+      {/* Services / Capabilities Section: 4 Core Specializations */}
       <Capabilities />
 
       {/* Selected Portfolio Works Grid with Orange Glow & Modal Trigger */}

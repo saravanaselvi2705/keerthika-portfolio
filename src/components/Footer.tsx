@@ -25,7 +25,7 @@ const socialLinks = [
   { name: "Behance", icon: Sparkles, href: "https://behance.net" },
   { name: "Dribbble", icon: Dribbble, href: "https://dribbble.com" },
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/__art__dreamer__/" },
   { name: "WhatsApp", icon: MessageSquare, href: "https://wa.me/918281082489" },
 ];
 
@@ -49,10 +49,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#06070A] text-foreground border-t border-gold-500/20 pt-16 pb-12 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          
+
           {/* Column 1: Brand Info & Bio */}
           <div className="lg:col-span-4 space-y-6">
             <a href="#home" onClick={(e) => scrollToSection(e, "#home")} className="flex items-center gap-2 group">
